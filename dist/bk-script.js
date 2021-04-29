@@ -65,11 +65,11 @@ function showError() {
   if(email.validity.valueMissing) {
     // If the field is empty
     // display the following error message.
-    emailError.textContent = 'Oops! Please check your email';
+    emailError.textContent = 'Please write your email address';
   } else if(email.validity.typeMismatch) {
     // If the field doesn't contain an email address
     // display the following error message.
-    emailError.textContent = 'Entered value needs to be an e-mail address.';
+    emailError.textContent = 'Oops! That doesn’t look like an email address';
   } else if(email.validity.tooShort) {
     // If the data is too short
     // display the following error message.

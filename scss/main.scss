@@ -40,7 +40,9 @@ body {
     background: $dark-blue;
     color: $white;
 }
-
+main {
+    overflow: hidden;
+}
 @mixin paragraph($align: center) {
     font-size: 15px;
     line-height: 25px;
@@ -64,6 +66,12 @@ body {
     opacity: 0.8;
 }
 
+@mixin price {
+    font-size: 40px;
+    line-height: 55px;
+    font-weight: 800;
+    padding-top: 28px;
+}
 
 /* 	======================
 	    DESKTOP 1441px
@@ -170,6 +178,13 @@ header {
         background: $primary-color;
         padding: 48px 38px;
         color: $white;
+        position: relative;
+
+        img {
+            width: 46px;
+            position: absolute;
+            top: -24px;
+        }
         h4 {
             margin-bottom: 20px;
         }
@@ -180,16 +195,14 @@ header {
             list-style-image: url(../assets/icon-check-green.svg);
             margin-left: 20px;
             margin-top: 17px;
+            line-height: 36px;
             li span {
                 position: relative;
                 left: 7px;
             }              
         }
         &--price1 {
-            font-size: 40px;
-            line-height: 55px;
-            font-weight: 800;
-            padding-top: 28px;
+            @include price();
         }
     }
 
@@ -199,7 +212,13 @@ header {
         background: $secondary-color;
         padding: 60px 38px;
         color: $dark-blue;
-        
+        position: relative;
+
+        img {
+            width: 51px;
+            position: absolute;
+            top: -34px;
+        }
         h4 {
             color: $dark-blue;
             margin-bottom: 20px;
@@ -214,6 +233,7 @@ header {
             list-style-image: url(../assets/icon-check.svg);
             margin-left: 20px;
             margin-top: 17px;
+            line-height: 36px;
             li span {
                 position: relative;
                 left: 7px;
@@ -221,10 +241,7 @@ header {
         }
         
         &--price2 {
-            font-size: 40px;
-            line-height: 55px;
-            font-weight: 800;
-            padding-top: 28px;
+            @include price();
             @include flexCenter(row);
 
             .month   {
@@ -322,6 +339,294 @@ header {
 */
 @media(min-width:481px) and (max-width: 1023px){
 
+header {
+    width: 100%;
+    margin: auto;
+    img {
+        width: 120px;
+        margin-top: 48px;
+        margin-left: 39px;
+    }
+}
+
+.top-container {
+    width: 100vw;
+    height: 357px;
+    position: relative;
+    background-image: url(../assets/illustration-hero-left.svg), url(../assets/illustration-hero-right.svg);
+    background-repeat: no-repeat;
+    background-size: 314px 351px, 317px 356px;
+    background-position: left -169px top, right -171px top;
+    text-align: center;
+    margin-top: 78px;
+    @include flexCenter(column);
+    overflow: hidden;
+
+    h1 {
+        font-size: 32px;
+        line-height: 40px;
+        margin-top: 47px;
+        width: 340px;
+    }
+    p {
+        width: 425px;
+        @include paragraph();
+        margin-top: 23px;
+        margin-bottom: 33px;
+    }
+    &__doodle {
+        position: absolute;
+        z-index: -1;
+        top: 30px;
+
+        img {
+            width: 386px;
+        }
+    }
+}
+.middle-container {
+    width: 573px;
+    height: 614px;
+    margin: auto;
+    @include flexCenter(column);
+    justify-content: space-between;
+    margin-top: 103px;
+
+    &__cards {
+        width: 515px;
+        height: 124px;
+        @include flexCenter(row);
+        align-items: flex-start;
+                
+        &--txt {
+            h2 {
+                margin-top: 19px;
+            }
+            p {
+                @include paragraph(left);
+                width: 340px;
+                margin-top: 11px;
+            }
+        }
+
+        &--icons {
+            width: 120px;
+            height: 124px;
+            border-radius: 45px;
+            background: $primary-color;
+            @include flexCenter();
+            justify-content: center;
+            box-sizing: border-box;
+            margin-right: 55px;
+            
+            &_first {
+                width: 66px;
+            }
+            &_second {
+                width: 51px;
+            }
+            &_third {
+                width: 60px;
+            }
+            &_fourth {
+                width: 78px;
+            }
+        }
+        
+    }
+
+    &__cards:nth-child(even) {
+        transform: translateX(-58px);
+    }
+}
+.price-container {
+    width: 520px;
+    height: 1137px;
+    margin: auto;
+    margin-top: 139px;
+
+    &__title {
+        width: 540px;
+        margin: auto;
+        text-align: center;
+
+        p {
+            @include paragraph();
+            margin-top: 23px;
+        }
+    }
+    
+    &__cards {
+        @include flexCenter(column);
+        justify-content: space-between;
+        box-sizing: border-box;
+        margin-top: 78px;
+        @include paragraph(left);
+    }
+
+    &--card1 {
+        height: 429px;        
+        @include cards();
+        background: $primary-color;
+        padding: 48px 38px;
+        color: $white;
+        position: relative;
+        margin-bottom: 65px;
+
+        img {
+            width: 46px;
+            position: absolute;
+            top: -24px;
+        }
+        h4 {
+            margin-bottom: 20px;
+        }
+        &--p-first {
+            @include p-opacity();
+        }
+        &--features {
+            list-style-image: url(../assets/icon-check-green.svg);
+            margin-left: 20px;
+            margin-top: 17px;
+            line-height: 36px;
+            li span {
+                position: relative;
+                left: 7px;
+            }              
+        }
+        &--price1 {
+            @include price();
+        }
+    }
+
+    &--card2 {
+        height: 449px;
+        @include cards();
+        background: $secondary-color;
+        padding: 60px 38px;
+        color: $dark-blue;
+        position: relative;
+
+        img {
+            width: 51px;
+            position: absolute;
+            top: -34px;
+        }
+        h4 {
+            color: $dark-blue;
+            margin-bottom: 20px;
+        }
+
+        &--p-first {
+            @include p-opacity();
+        }
+        
+        
+        &--features {
+            list-style-image: url(../assets/icon-check.svg);
+            margin-left: 20px;
+            margin-top: 17px;
+            line-height: 36px;
+            li span {
+                position: relative;
+                left: 7px;
+            }            
+        }
+        
+        &--price2 {
+            @include price();
+            @include flexCenter(row);
+
+            .month   {
+                @include paragraph();
+                @include p-opacity();
+                margin-left: 8px;
+                color: $dark-blue;
+            }
+        }
+    }   
+}
+
+.footer {
+    width: 100%;
+    height: 364px;
+    margin: auto;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    @include flexCenter();
+    justify-content: center;
+
+    &__doodle img{
+        width: 1022px;
+        position: absolute;
+        top: 109px;
+        right: 0px;
+        z-index: -1;
+        overflow: visible;
+    }
+    h3 {
+        font-size: 24px;
+    }
+    form {
+        width: 476px;
+        @include flexCenter(row);
+        margin-top: 23px;
+        
+        input {
+            border: none;
+            box-sizing: border-box;
+            font-weight: bold;
+            color: $white;
+        }
+        ::-webkit-input-placeholder{
+            @include paragraph();
+            text-align: left;
+            @include p-opacity();
+        }
+        input[type="email"] {
+            width: 320px;
+            height: 48px;
+            border-radius: 24px;
+            padding-left: 18px;
+            background: $primary-color;
+            
+            &:invalid:not(:focus):not(:placeholder-shown) {
+                border: 1px solid $error-color;
+            }
+              
+        }
+        input[type=submit] {
+            width: 140px;
+            height: 48px;
+            background-color: $secondary-color;
+            border-radius: 24px;
+            color: $primary-color;
+            font-weight: bold;
+            margin-left: 16px;
+
+            &:hover {
+                background-color: $dark-blue;
+                border: 1px solid $secondary-color;
+                color: $white;
+                cursor: pointer;
+            }
+        }
+        .error {
+            font-size: 12px;
+            line-height: 25px;
+            color: $error-color;
+            margin-left: 18px;
+            position: absolute;
+            margin-top: 65px;
+        }
+        .error.active {
+          padding-top: 0px;
+        }
+    }
+}
+
+    
 }
 
 
@@ -332,6 +637,304 @@ header {
     =====================
 */
 @media(max-width:480px) {
+ header {
+    width: 120px;
+    margin: 40px auto 0px auto;
+    img {
+        width: 120px;
+    }
+}
+
+.top-container {
+    width: 100vw;
+    position: relative;
+    background-image: url(../assets/illustration-hero-mobile.png);
+    background-repeat: no-repeat;
+    background-size: 408px;
+    background-position: left top;
+    text-align: center;
+    margin-top: 62px;
+    @include flexCenter(column);
+    overflow: hidden;
+
+    h1 {
+        width: 250px;
+        font-size: 32px;
+        line-height: 40px;
+        margin-top: 281px;
+    }
+    p {
+        width: 327px;
+        @include paragraph();
+        margin-top: 25px;
+        margin-bottom: 33px;
+    }
+    &__doodle {
+        display: none;
+
+        img {
+            width: 386px;
+        }
+    }
+}
+.middle-container {
+    width: 327px;
+    height: 1134px;
+    margin: auto;
+    display: grid;
+    row-gap: 60px;
+
+    margin-top: 142px;
+
+    &__cards {
+        width: 327px;
+        height: 242px;
+        @include flexCenter(column);
+        align-items: center;
+                
+        &--txt {
+            h2 {
+                text-align: center;
+            }
+            p {
+                @include paragraph(center);
+                width: 315px;
+                margin-top: 13px;
+            }
+        }
+
+        &--icons {
+            width: 120px;
+            height: 124px;
+            border-radius: 45px;
+            background: $primary-color;
+            @include flexCenter();
+            justify-content: center;
+            margin-bottom: 32px;
+            box-sizing: border-box;
+            
+            &_first {
+                width: 66px;
+                height: auto;
+                padding: 22px 24px 22px 32px;
+            }
+            &_second {
+                width: 56px;
+                padding: 28px 32px;
+            }
+            &_third {
+                width: 71px;
+                padding: 26px 30px;
+            }
+            &_fourth {
+                width: 78px;
+                height: auto;
+                padding: 33px 21px;
+            }
+        }   
+    }
+}
+.price-container {
+    width: 327px;
+    height: 1163px;
+    margin: auto;
+    margin-top: 158px;
+
+    &__title {
+        h3 {
+            width: 213px;
+            margin: auto;
+            font-size: 24px;
+            line-height: 33px;
+            text-align: center;
+        }
+
+        p {
+            @include paragraph();
+            width: 306px;
+            margin: auto;
+            margin-top: 25px;
+        }
+    }
     
+    &__cards {
+        @include flexCenter(column);
+        justify-content: space-between;
+        box-sizing: border-box;
+        margin-top: 81px;
+        @include paragraph(left);
+    }
+
+    &--card1 {
+        @include cards();
+        width: 327px;
+        height: 436px;
+        background: $primary-color;
+        padding: 46px 31px 48px 50px;
+        color: $white;
+        position: relative;
+        margin-bottom: 65px;
+
+        img {
+            width: 46px;
+            position: absolute;
+            top: -24px;
+        }
+        h4 {
+            margin-bottom: 20px;
+        }
+        &--p-first {
+            @include p-opacity();
+        }
+        &--features {
+            list-style-image: url(../assets/icon-check-green.svg);
+            margin-left: 20px;
+            margin-top: 17px;
+            line-height: 35px;
+            li span {
+                position: relative;
+                left: 7px;
+            }              
+        }
+        &--price1 {
+            @include price();
+        }
+    }
+
+    &--card2 {
+        @include cards();
+        width: 327px;
+        height: 436px;
+        background: $secondary-color;
+        padding: 60px 38px;
+        color: $dark-blue;
+        position: relative;
+
+        img {
+            width: 51px;
+            position: absolute;
+            top: -34px;
+        }
+        h4 {
+            color: $dark-blue;
+            margin-bottom: 20px;
+        }
+
+        &--p-first {
+            @include p-opacity();
+        }
+        
+        
+        &--features {
+            list-style-image: url(../assets/icon-check.svg);
+            margin-left: 20px;
+            margin-top: 17px;
+            line-height: 35px;
+            li span {
+                position: relative;
+                left: 7px;
+            }            
+        }
+        
+        &--price2 {
+            @include price();
+            @include flexCenter(row);
+
+            .month   {
+                @include paragraph();
+                @include p-opacity();
+                margin-left: 8px;
+                color: $dark-blue;
+            }
+        }
+    }   
+}
+
+.footer {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    @include flexCenter();
+    margin-top: 136px;
+
+    &__doodle {
+        
+        img {
+            width: 548px;
+            position: absolute;
+            top: 0;
+            right: -104px;
+            z-index: -1;
+            overflow: visible;
+        }
+    }
+        
+        
+    h3 {
+        width: 212px;
+        text-align: center;
+        font-size: 24px;
+        line-height: 33px;
+    }
+    form {
+        width: 476px;
+        @include flexCenter(column);
+        margin-top: 42px;
+        
+        input {
+            border: none;
+            box-sizing: border-box;
+            font-weight: bold;
+            color: $white;
+        }
+        ::-webkit-input-placeholder{
+            @include paragraph();
+            text-align: left;
+            @include p-opacity();
+        }
+        input[type="email"] {
+            width: 327px;
+            height: 48px;
+            border-radius: 24px;
+            padding-left: 18px;
+            background: $primary-color;
+            
+            &:invalid:not(:focus):not(:placeholder-shown) {
+                border: 1px solid $error-color;
+            }
+              
+        }
+        input[type=submit] {
+            width: 327px;
+            height: 48px;
+            background-color: $secondary-color;
+            border-radius: 24px;
+            color: $primary-color;
+            font-weight: bold;
+            margin-left: 16px;
+            margin-top: 24px;
+            margin-bottom: 164px;
+
+            &:hover {
+                background-color: $dark-blue;
+                border: 1px solid $secondary-color;
+                color: $white;
+                cursor: pointer;
+            }
+        }
+        .error {
+            font-size: 12px;
+            line-height: 25px;
+            color: $error-color;
+            margin-left: 18px;
+            position: absolute;
+            margin-top: 65px;
+        }
+        .error.active {
+          padding-top: 0px;
+        }
+    }
+}   
 
 }
