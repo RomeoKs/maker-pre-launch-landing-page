@@ -13,54 +13,91 @@
   <body>
     <main>
 		<header>
-			<img src="./assets/logo.svg" alt="Logo Maker">
+			<img src="./dist/assets/logo.svg" alt="Logo Maker">
 		</header>
 
 		<div class="top-container">
-			<h1>Get paid for the work you love to do.</h1>
+			<div class="top-container__doodle"><img src="./dist/assets/bg-hero-squiggle.svg" alt="Squiggle"></div>
+			<h1>Get paid for the work you <span>love</span> to do.</h1>
 			<p>The 9-5 grind is so last century. We believe in living life on your own terms. 
 						Whether you’re looking to escape the rat race or set up a side hustle, we’ve got you covered.</p>
+			<img src="./dist/assets/icon-scroll.svg" alt="Scroll Page">
 		</div>
     
 		<div class="middle-container">
-			<h2>Indulge your passions</h2>
-			<p>Your passions shouldn't be just for the weekend. Earn a living doing what you love.</p>
+			<div class="middle-container__cards">
+				<div class="middle-container__cards--icons">
+					<img src="./dist/assets/illustration-passions.svg" alt="Passions">
+				</div>
+				<h2>Indulge your passions</h2>
+				<p>Your passions shouldn't be just for the weekend. Earn a living doing what you love.</p>
+			</div>
+			<div class="middle-container__cards">
+				<div class="middle-container__cards--icons">
+					<img src="./dist/assets/illustration-financial-freedom.svg" alt="Financial freedom">
+				</div>
+				<h2>Gain financial freedom</h2>
+				<p>Start making money work for you. There’s nothing quite like earning while you sleep.</p>
+			</div>
+			<div class="middle-container__cards">
+				<div class="middle-container__cards--icons">
+					<img src="./dist/assets/illustration-lifestyle.svg" alt="Lifstyle">
+				</div>
+				<h2>Choose your lifestyle</h2>
+				<p>Own your daily schedule. Fancy a lie-in? Go for it! Take charge of your week.</p>
+			</div>
+			<div class="middle-container__cards">
+				<div class="middle-container__cards--icons">
+					<img src="./dist/assets/illustration-work-anywhere.svg" alt="Work from anywhere">
+				</div>
+				<h2>Work from anywhere</h2>
+				<p>Selling online means not being pinned down. Want to work AND travel? Go for it!</p>
+			</div>
 			
-			<h2>Gain financial freedom</h2>
-			<p>Start making money work for you. There’s nothing quite like earning while you sleep.</p>
-			
-			<h2>Choose your lifestyle</h2>
-			<p>Own your daily schedule. Fancy a lie-in? Go for it! Take charge of your week.</p>
-			
-			<h2>Work from anywhere</h2>
-			<p>Selling online means not being pinned down. Want to work AND travel? Go for it!</p>
 		</div>
 		
 		<div class="price-container">
-			<h3>Our pricing plans</h3>
-			We only make money when our creators make money. Our plans are always affordable, and
-			it’s completely free to get started.
-			<h4>Dip your toe</h4>
-			Just getting started? No problem at all! Our free plan will take you a long way.
-			Free
-			Unlimited products
-			Basic analytics
-			Limited marketplace exposure
-			10% fee per transaction
-			<h4>Dive right in</h4>	
-			Ready for the big time? Our paid plan will help you take your business to the next level.
-			$25.00 /month
-			Custom domain
-			Advanced analytics and reports
-			High marketplace visibility
-			5% fee per transaction
-		</div>
-		
-		<div class="subscription">
-			<h3>Get notified when we launch</h3>
-			Email address
-			Get notified
+			<div class="price-container__title">
+				<h3>Our pricing plans</h3>
+				<p>We only make money when our creators make money. Our plans are always affordable, and
+					it’s completely free to get started.</p>
+			</div>
+			<div class="price-container__cards">
+				<div class="price-container--card1">
+					<h4>Dip your toe</h4>
+					<p class="price-container--card1--p-first">Just getting started? No problem at all! Our free plan will take you a long way.</p>
+					<p class="price-container--card1--price1">Free</p>
+					<ul class="price-container--card1--features">
+						<li><span>Unlimited products</span></li>
+						<li><span>Basic analytics</span></li>
+						<li><span>Limited marketplace exposure</span></li>
+						<li><span>10% fee per transaction</span></li>
+					</ul>
+				</div>
+				<div class="price-container--card2">
+					<h4>Dive right in</h4>
+					<p class="price-container--card2--p-first">Ready for the big time? Our paid plan will help you take your business to the next level.</p>
+					<div class="price-container--card2--price2">$25.00 <p class="month">/month</p></div>
+					<ul class="price-container--card2--features">
+						<li><span>Custom domain</span></li>
+						<li><span>Advanced analytics and reports</span></li>
+						<li><span>High marketplace visibility</span></li>
+						<li><span>5% fee per transaction</span></li>
+					</ul>
+				</div>
+			</div>
 		</div>
   </main>
+  <div class="footer">
+	<div class="footer__doodle"><img src="./dist/assets/bg-footer-squiggle.svg" alt="Squiggle"></div>
+	<h3>Get notified when we launch</h3>
+	<form novalidate>
+		<input type="email" id="mail" title="email" aria-label="email" required placeholder="Email address">
+		<div class="error"></div>
+		<input type="submit" name="submit" value="Get notified">
+		
+	</form>
+</div>
+<script src="./script.js"></script>
 </body>
 </html>
